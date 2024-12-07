@@ -1,0 +1,149 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #add8e6, #b0c4de, #ffffff);
+  background-image: url(images/back.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  max-width: 200px;
+  height: auto;
+}
+
+/* Snowfall Effect */
+.snowflake {
+  position: absolute;
+  top: -10px;
+  color: white;
+  font-size: 1.5rem;
+  user-select: none;
+  pointer-events: none;
+  animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+#mascot {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  width: 300px;
+  height: auto;
+  display: none;
+  z-index: 1000;
+  transition: transform 2.5s ease-in-out, opacity 1.5s ease-in-out;
+}
+
+#mascot.flyout {
+  transform: translate(-50%, -400%) scale(3) rotate(1080deg);
+  opacity: 0;
+}
+
+/* General Styling for Container */
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three buttons per row by default */
+  gap: 20px;
+  padding: 30px;
+  background-color: rgba(202, 240, 248, 0.514);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for All Buttons */
+.btn {
+  background-color: rgb(2, 62, 138); /* Default frosty blue */
+  color: white;
+  border: none;
+  padding: 30px 20px;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Unique Color for Specific Buttons */
+#btn14 {
+  background-color: rgb(230, 57, 70); /* Tomato red */
+}
+
+#btn15 {
+  background-color: rgb(0, 180, 216); /* Medium sea green */
+}
+
+/* Hover Effect for All Buttons */
+.btn:hover {
+  background-color: rgb(1, 51, 114); /* Slightly darker blue */
+  transform: translateY(-4px);
+}
+
+/* Active Button Effect */
+.btn:active {
+  transform: translateY(2px);
+}
+
+/* Responsive Design for Tablets */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* Retain three columns */
+    gap: 15px; /* Adjust gap for tablets */
+  }
+
+  .btn {
+    padding: 25px; /* Adjust button padding */
+    font-size: 16px; /* Adjust font size */
+  }
+}
+
+/* Responsive Design for Phones */
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr); /* Retain three columns */
+    gap: 10px; /* Adjust gap for smaller phones */
+    padding: 15px; /* Adjust padding for better fit */
+  }
+
+  .btn {
+    padding: 20px; /* Adjust button size */
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+}
+
+/* Responsive Design for Ultra-Small Screens */
+@media (max-width: 360px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr); /* Switch to two columns for very small screens */
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 18px; /* Further adjust padding for very small screens */
+    font-size: 13px; /* Adjust font size */
+  }
+}
